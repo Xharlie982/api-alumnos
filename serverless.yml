@@ -1,0 +1,28 @@
+org: carlosalith
+service: api-alumnos
+
+provider:
+  name: aws
+  runtime: python3.13
+  timeout: 20  
+  iam:
+    role: arn:aws:iam::844022267709:role/LabRole
+
+functions:
+  listar:
+    handler: ListarAlumnos.lambda_handler
+    events:
+      - http:
+          path: /alumnos/listar
+          method: post
+          cors: true
+          integration: lambda
+  crear:
+    handler: CrearAlumno.lambda_handler
+    events:
+      - http:
+          path: /alumnos/crear
+          method: post
+          cors: true
+          integration: lambda
+
