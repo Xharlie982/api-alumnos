@@ -10,7 +10,7 @@ provider:
 
 functions:
   listar:
-    handler: ListarAlumno.lambda_handler 
+    handler: ListarAlumnos.lambda_handler 
     events:
       - http:
           path: /alumnos/listar
